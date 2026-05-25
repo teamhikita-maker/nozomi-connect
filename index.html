@@ -1,0 +1,935 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NOZOMI CONNECT｜東西三河ビジネス交流会</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;600;700&family=Noto+Sans+JP:wght@300;400;500;700&family=Cinzel:wght@400;600;700&display=swap');
+
+    :root {
+      --gold: #C9A84C;
+      --gold-light: #E8D08A;
+      --gold-dark: #8B6914;
+      --black: #0A0A0A;
+      --dark: #111111;
+      --dark2: #1A1A1A;
+      --white: #FAFAF5;
+      --cream: #F5EDD8;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background-color: var(--black);
+      color: var(--white);
+      font-family: 'Noto Sans JP', sans-serif;
+      line-height: 1.8;
+      overflow-x: hidden;
+    }
+
+    /* ─── HERO ─── */
+    .hero {
+      min-height: 100vh;
+      background:
+        radial-gradient(ellipse at 20% 50%, rgba(201,168,76,0.15) 0%, transparent 60%),
+        radial-gradient(ellipse at 80% 20%, rgba(201,168,76,0.10) 0%, transparent 50%),
+        linear-gradient(160deg, #0A0A0A 0%, #1a1208 40%, #0d0d0d 100%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 80px 20px 60px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background-image:
+        radial-gradient(circle at 1px 1px, rgba(201,168,76,0.15) 1px, transparent 0);
+      background-size: 40px 40px;
+      pointer-events: none;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      border: 1px solid var(--gold);
+      color: var(--gold);
+      font-size: 0.75rem;
+      letter-spacing: 0.3em;
+      padding: 6px 20px;
+      margin-bottom: 24px;
+      font-family: 'Noto Sans JP', sans-serif;
+    }
+
+    .hero-tagline {
+      font-size: 0.85rem;
+      letter-spacing: 0.25em;
+      color: var(--gold-light);
+      margin-bottom: 16px;
+      font-weight: 300;
+    }
+
+    .hero-title {
+      font-family: 'Cinzel', serif;
+      font-size: clamp(3rem, 10vw, 6.5rem);
+      font-weight: 700;
+      line-height: 1.0;
+      background: linear-gradient(135deg, #C9A84C 0%, #F0D882 40%, #C9A84C 60%, #8B6914 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 8px;
+      text-shadow: none;
+      filter: drop-shadow(0 0 30px rgba(201,168,76,0.4));
+    }
+
+    .hero-subtitle-jp {
+      font-family: 'Noto Serif JP', serif;
+      font-size: clamp(1rem, 3vw, 1.4rem);
+      color: var(--cream);
+      letter-spacing: 0.1em;
+      margin-bottom: 32px;
+    }
+
+    .hero-copy {
+      max-width: 600px;
+      font-size: 0.9rem;
+      color: rgba(255,255,255,0.65);
+      line-height: 2;
+      margin-bottom: 48px;
+    }
+
+    .gold-divider {
+      width: 80px;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+      margin: 0 auto 48px;
+    }
+
+    .hero-date-box {
+      background: rgba(201,168,76,0.08);
+      border: 1px solid rgba(201,168,76,0.4);
+      padding: 24px 48px;
+      margin-bottom: 40px;
+    }
+
+    .hero-date {
+      font-family: 'Cinzel', serif;
+      font-size: clamp(1.8rem, 5vw, 3rem);
+      color: var(--gold-light);
+      font-weight: 600;
+      letter-spacing: 0.05em;
+    }
+
+    .hero-date-sub {
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.5);
+      letter-spacing: 0.2em;
+      margin-top: 4px;
+    }
+
+    .btn-primary {
+      display: inline-block;
+      background: linear-gradient(135deg, #C9A84C, #E8D08A, #C9A84C);
+      color: #0A0A0A;
+      font-weight: 700;
+      font-size: 1rem;
+      padding: 18px 52px;
+      letter-spacing: 0.1em;
+      text-decoration: none;
+      transition: all 0.3s;
+      font-family: 'Noto Sans JP', sans-serif;
+      cursor: pointer;
+      border: none;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 40px rgba(201,168,76,0.5);
+    }
+
+    .btn-outline {
+      display: inline-block;
+      border: 1px solid var(--gold);
+      color: var(--gold);
+      font-size: 0.85rem;
+      padding: 14px 40px;
+      letter-spacing: 0.15em;
+      text-decoration: none;
+      transition: all 0.3s;
+      margin-left: 16px;
+      cursor: pointer;
+    }
+
+    .btn-outline:hover {
+      background: rgba(201,168,76,0.1);
+    }
+
+    /* ─── SECTIONS ─── */
+    section {
+      padding: 100px 20px;
+    }
+
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+    }
+
+    .section-label {
+      font-size: 0.7rem;
+      letter-spacing: 0.4em;
+      color: var(--gold);
+      text-align: center;
+      margin-bottom: 12px;
+    }
+
+    .section-title {
+      font-family: 'Noto Serif JP', serif;
+      font-size: clamp(1.5rem, 4vw, 2.2rem);
+      text-align: center;
+      color: var(--cream);
+      margin-bottom: 16px;
+      font-weight: 600;
+    }
+
+    .section-title span {
+      color: var(--gold-light);
+    }
+
+    .section-desc {
+      text-align: center;
+      color: rgba(255,255,255,0.55);
+      font-size: 0.9rem;
+      max-width: 560px;
+      margin: 0 auto 60px;
+    }
+
+    /* ─── INFO BAND ─── */
+    .info-band {
+      background: linear-gradient(135deg, rgba(201,168,76,0.12), rgba(201,168,76,0.05));
+      border-top: 1px solid rgba(201,168,76,0.3);
+      border-bottom: 1px solid rgba(201,168,76,0.3);
+      padding: 60px 20px;
+    }
+
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 40px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .info-item {
+      text-align: center;
+    }
+
+    .info-item-label {
+      font-size: 0.65rem;
+      letter-spacing: 0.35em;
+      color: var(--gold);
+      margin-bottom: 10px;
+      display: block;
+    }
+
+    .info-item-value {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 1.05rem;
+      color: var(--cream);
+      line-height: 1.6;
+    }
+
+    .info-item-value strong {
+      font-size: 1.6rem;
+      color: var(--gold-light);
+      display: block;
+      font-family: 'Cinzel', serif;
+    }
+
+    /* ─── PROGRAM ─── */
+    .program-bg {
+      background: var(--dark2);
+    }
+
+    .program-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 24px;
+    }
+
+    .program-card {
+      border: 1px solid rgba(201,168,76,0.25);
+      padding: 36px 24px;
+      text-align: center;
+      transition: all 0.3s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .program-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+      transform: scaleX(0);
+      transition: transform 0.3s;
+    }
+
+    .program-card:hover::before { transform: scaleX(1); }
+    .program-card:hover { background: rgba(201,168,76,0.06); }
+
+    .program-icon {
+      font-size: 2rem;
+      margin-bottom: 16px;
+    }
+
+    .program-title {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 1rem;
+      color: var(--gold-light);
+      margin-bottom: 10px;
+      font-weight: 600;
+    }
+
+    .program-desc {
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.5);
+      line-height: 1.8;
+    }
+
+    /* ─── FEATURES ─── */
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 32px;
+    }
+
+    .feature-card {
+      display: flex;
+      gap: 20px;
+      padding: 32px;
+      border: 1px solid rgba(201,168,76,0.15);
+      align-items: flex-start;
+      transition: border-color 0.3s;
+    }
+
+    .feature-card:hover { border-color: rgba(201,168,76,0.4); }
+
+    .feature-icon {
+      font-size: 1.8rem;
+      flex-shrink: 0;
+      margin-top: 4px;
+    }
+
+    .feature-title {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 1rem;
+      color: var(--gold-light);
+      margin-bottom: 8px;
+      font-weight: 600;
+    }
+
+    .feature-desc {
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.5);
+      line-height: 1.8;
+    }
+
+    /* ─── FOR WHOM ─── */
+    .for-whom-bg {
+      background: linear-gradient(160deg, #0d0d0d, #1a1208, #0d0d0d);
+    }
+
+    .for-whom-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 16px;
+    }
+
+    .for-whom-item {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 20px 24px;
+      border: 1px solid rgba(201,168,76,0.2);
+      transition: all 0.3s;
+    }
+
+    .for-whom-item:hover {
+      border-color: var(--gold);
+      background: rgba(201,168,76,0.05);
+    }
+
+    .for-whom-dot {
+      width: 6px;
+      height: 6px;
+      background: var(--gold);
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    .for-whom-text {
+      font-size: 0.88rem;
+      color: rgba(255,255,255,0.75);
+      line-height: 1.5;
+    }
+
+    .for-whom-text strong {
+      display: block;
+      color: var(--cream);
+      font-size: 0.93rem;
+      margin-bottom: 2px;
+    }
+
+    /* ─── PARTICIPANTS ─── */
+    .participants-wrap {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      justify-content: center;
+      margin-top: 48px;
+    }
+
+    .participant-tag {
+      border: 1px solid rgba(201,168,76,0.4);
+      color: var(--gold-light);
+      font-size: 0.82rem;
+      padding: 8px 20px;
+      letter-spacing: 0.1em;
+    }
+
+    /* ─── PARTNER ─── */
+    .partner-box {
+      background: linear-gradient(135deg, rgba(201,168,76,0.12), rgba(201,168,76,0.04));
+      border: 1px solid rgba(201,168,76,0.35);
+      padding: 60px 40px;
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .partner-badge {
+      display: inline-block;
+      background: linear-gradient(135deg, var(--gold), var(--gold-light));
+      color: #0A0A0A;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      padding: 6px 20px;
+      margin-bottom: 24px;
+    }
+
+    .partner-title {
+      font-family: 'Noto Serif JP', serif;
+      font-size: clamp(1.3rem, 3.5vw, 1.8rem);
+      color: var(--cream);
+      margin-bottom: 16px;
+    }
+
+    .partner-desc {
+      font-size: 0.88rem;
+      color: rgba(255,255,255,0.55);
+      margin-bottom: 32px;
+      line-height: 2;
+    }
+
+    /* ─── CTA ─── */
+    .cta-bg {
+      background:
+        radial-gradient(ellipse at center, rgba(201,168,76,0.12) 0%, transparent 70%),
+        var(--dark);
+      text-align: center;
+    }
+
+    .cta-title {
+      font-family: 'Noto Serif JP', serif;
+      font-size: clamp(1.4rem, 4vw, 2rem);
+      color: var(--cream);
+      margin-bottom: 12px;
+    }
+
+    .cta-copy {
+      color: rgba(255,255,255,0.5);
+      font-size: 0.88rem;
+      margin-bottom: 48px;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 24px;
+      max-width: 720px;
+      margin: 48px auto 0;
+    }
+
+    .contact-card {
+      border: 1px solid rgba(201,168,76,0.25);
+      padding: 28px 24px;
+      text-align: center;
+    }
+
+    .contact-label {
+      font-size: 0.65rem;
+      letter-spacing: 0.35em;
+      color: var(--gold);
+      margin-bottom: 8px;
+    }
+
+    .contact-value {
+      font-size: 0.95rem;
+      color: var(--cream);
+      font-weight: 500;
+    }
+
+    .contact-note {
+      font-size: 0.75rem;
+      color: rgba(255,255,255,0.4);
+      margin-top: 4px;
+    }
+
+    /* ─── FOOTER ─── */
+    footer {
+      border-top: 1px solid rgba(201,168,76,0.15);
+      padding: 40px 20px;
+      text-align: center;
+    }
+
+    footer .footer-logo {
+      font-family: 'Cinzel', serif;
+      font-size: 1.2rem;
+      color: var(--gold);
+      letter-spacing: 0.15em;
+      margin-bottom: 12px;
+    }
+
+    footer .footer-copy {
+      font-size: 0.72rem;
+      color: rgba(255,255,255,0.25);
+      letter-spacing: 0.1em;
+    }
+
+    /* ─── PRICE TAG ─── */
+    .price-highlight {
+      display: inline-block;
+      border: 1px solid var(--gold);
+      padding: 20px 40px;
+      margin: 0 auto 32px;
+    }
+
+    .price-amount {
+      font-family: 'Cinzel', serif;
+      font-size: 2.5rem;
+      color: var(--gold-light);
+      font-weight: 600;
+    }
+
+    .price-note {
+      font-size: 0.75rem;
+      color: rgba(255,255,255,0.45);
+      margin-top: 4px;
+    }
+
+    /* ─── FLOAT NAV ─── */
+    .float-cta {
+      position: fixed;
+      bottom: 28px;
+      right: 28px;
+      z-index: 100;
+    }
+
+    .float-cta a {
+      display: block;
+      background: linear-gradient(135deg, #C9A84C, #E8D08A);
+      color: #0A0A0A;
+      font-weight: 700;
+      font-size: 0.82rem;
+      padding: 14px 24px;
+      text-decoration: none;
+      letter-spacing: 0.1em;
+      box-shadow: 0 4px 24px rgba(201,168,76,0.5);
+      transition: all 0.3s;
+    }
+
+    .float-cta a:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 40px rgba(201,168,76,0.7);
+    }
+
+    /* ─── ORNAMENT ─── */
+    .ornament {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      justify-content: center;
+      margin-bottom: 40px;
+    }
+
+    .ornament-line {
+      width: 60px;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--gold));
+    }
+
+    .ornament-line.right {
+      background: linear-gradient(90deg, var(--gold), transparent);
+    }
+
+    .ornament-diamond {
+      width: 8px;
+      height: 8px;
+      background: var(--gold);
+      transform: rotate(45deg);
+    }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 600px) {
+      .btn-outline { margin-left: 0; margin-top: 12px; display: block; }
+      .hero-date-box { padding: 20px 28px; }
+      section { padding: 72px 20px; }
+      .partner-box { padding: 40px 24px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- FLOAT CTA -->
+<div class="float-cta">
+  <a href="mailto:nozomiconnect.info@gmail.com">申し込む →</a>
+</div>
+
+<!-- ═══════════════════════════════════════
+     HERO
+════════════════════════════════════════ -->
+<section class="hero">
+  <div class="hero-badge">東西三河ビジネス交流会</div>
+  <p class="hero-tagline">つながる・広がる、未来が動き出す</p>
+
+  <h1 class="hero-title">NOZOMI<br>CONNECT</h1>
+
+  <p class="hero-subtitle-jp">世界と三河を繋げ、未来を共に創る出会いの場</p>
+
+  <div class="gold-divider"></div>
+
+  <p class="hero-copy">
+    世界の美の舞台にチャレンジする人脈を活かし、<br>
+    たくさんの人が集う交流会を開催します。<br>
+    名刺交換・交流・マッチングを通じて、<br>
+    新たなビジネスの可能性を共に広げましょう。
+  </p>
+
+  <div class="hero-date-box">
+    <div class="hero-date">2026.06.25 THU</div>
+    <div class="hero-date-sub">18:30 OPEN &nbsp;|&nbsp; 19:00 START &nbsp;|&nbsp; 21:00 END</div>
+  </div>
+
+  <div>
+    <a href="mailto:nozomiconnect.info@gmail.com" class="btn-primary">参加申込はこちら</a>
+    <a href="#details" class="btn-outline">詳細を見る</a>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════
+     INFO BAND
+════════════════════════════════════════ -->
+<div class="info-band" id="details">
+  <div class="info-grid">
+
+    <div class="info-item">
+      <span class="info-item-label">DATE</span>
+      <div class="info-item-value">
+        <strong>6.25</strong>
+        2026年6月25日（木）
+      </div>
+    </div>
+
+    <div class="info-item">
+      <span class="info-item-label">TIME</span>
+      <div class="info-item-value">
+        <strong>19:00</strong>
+        18:30 受付開始<br>19:00〜21:00
+      </div>
+    </div>
+
+    <div class="info-item">
+      <span class="info-item-label">VENUE</span>
+      <div class="info-item-value">
+        ホテルアークリッシュ豊橋<br>
+        <span style="font-size:0.85rem; color:rgba(255,255,255,0.45);">4F｜愛知県豊橋市駅前大通1丁目55</span>
+      </div>
+    </div>
+
+    <div class="info-item">
+      <span class="info-item-label">FEE</span>
+      <div class="info-item-value">
+        <strong>¥11,000</strong>
+        <span style="font-size:0.8rem; color:rgba(255,255,255,0.4);">税込｜ビュッフェ・飲み放題付き</span>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════
+     PROGRAM
+════════════════════════════════════════ -->
+<section class="program-bg">
+  <div class="container">
+    <div class="ornament">
+      <div class="ornament-line"></div>
+      <div class="ornament-diamond"></div>
+      <div class="ornament-line right"></div>
+    </div>
+    <p class="section-label">PROGRAM</p>
+    <h2 class="section-title">当日の<span>プログラム</span></h2>
+    <p class="section-desc">名刺交換だけでは終わらない。未来へ繋がるビジネス交流会へ。</p>
+
+    <div class="program-grid">
+
+      <div class="program-card">
+        <div class="program-icon">🌏</div>
+        <div class="program-title">世界大会のご報告</div>
+        <p class="program-desc">大会での経験・学び・今後のビジョンをシェアします</p>
+      </div>
+
+      <div class="program-card">
+        <div class="program-icon">🤝</div>
+        <div class="program-title">ビジネス交流・名刺交換会</div>
+        <p class="program-desc">業種・業界を超えたつながりを広げましょう</p>
+      </div>
+
+      <div class="program-card">
+        <div class="program-icon">📊</div>
+        <div class="program-title">ビジネスマッチングタイム</div>
+        <p class="program-desc">ビジネスパートナー・協賛先の発掘をサポート</p>
+      </div>
+
+      <div class="program-card">
+        <div class="program-icon">💡</div>
+        <div class="program-title">共創の輪を広げる時間</div>
+        <p class="program-desc">未来に向けたアイデアや想いを共有します</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════
+     FEATURES
+════════════════════════════════════════ -->
+<section>
+  <div class="container">
+    <div class="ornament">
+      <div class="ornament-line"></div>
+      <div class="ornament-diamond"></div>
+      <div class="ornament-line right"></div>
+    </div>
+    <p class="section-label">FEATURES</p>
+    <h2 class="section-title"><span>素敵な時間</span>をご用意しています</h2>
+    <p class="section-desc">一度きりの出会いを、本物のビジネスチャンスへ。</p>
+
+    <div class="features-grid">
+
+      <div class="feature-card">
+        <div class="feature-icon">🪑</div>
+        <div>
+          <div class="feature-title">テーブル席での落ち着いた名刺交換</div>
+          <p class="feature-desc">席替えもあるので、複数の方と名刺交換とコミュニケーションが楽しめます。</p>
+        </div>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">🎤</div>
+        <div>
+          <div class="feature-title">スポンサーによるPRタイム</div>
+          <p class="feature-desc">貴社がPRする立場に回ることも可能。自社の魅力を参加者全員に届けましょう。</p>
+        </div>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">🔗</div>
+        <div>
+          <div class="feature-title">ビジネスマッチングサポート</div>
+          <p class="feature-desc">ただの名刺交換で終わらせないよう、スタッフが参加者同士のマッチングをサポートします。</p>
+        </div>
+      </div>
+
+    </div>
+
+    <p style="text-align:center; color:rgba(255,255,255,0.35); font-size:0.78rem; margin-top:40px; letter-spacing:0.1em;">
+      ※ 服装は自由です。スーツ・ジャケット・ビジネスカジュアル等でお気軽にご参加ください。<br>
+      　名刺交換の時間も多くありますので、たくさんの名刺をお持ちください。
+    </p>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════
+     FOR WHOM
+════════════════════════════════════════ -->
+<section class="for-whom-bg">
+  <div class="container">
+    <div class="ornament">
+      <div class="ornament-line"></div>
+      <div class="ornament-diamond"></div>
+      <div class="ornament-line right"></div>
+    </div>
+    <p class="section-label">FOR WHOM</p>
+    <h2 class="section-title">こんな方に<span>おすすめ</span></h2>
+    <p class="section-desc">前向きなエネルギーが集まる場所で、あなたの可能性を広げてください。</p>
+
+    <div class="for-whom-grid">
+
+      <div class="for-whom-item">
+        <div class="for-whom-dot"></div>
+        <div class="for-whom-text">
+          <strong>ビジネスを広げたい方</strong>
+          新しい販路・人脈・可能性を広げたい
+        </div>
+      </div>
+
+      <div class="for-whom-item">
+        <div class="for-whom-dot"></div>
+        <div class="for-whom-text">
+          <strong>新しいPR・コラボを生み出したい方</strong>
+          業種を超えた共創・協業をしたい
+        </div>
+      </div>
+
+      <div class="for-whom-item">
+        <div class="for-whom-dot"></div>
+        <div class="for-whom-text">
+          <strong>発信力を高めたい方</strong>
+          自分や事業の魅力をもっと届けたい
+        </div>
+      </div>
+
+      <div class="for-whom-item">
+        <div class="for-whom-dot"></div>
+        <div class="for-whom-text">
+          <strong>挑戦している人と繋がりたい方</strong>
+          前向きなエネルギーが集まる空間へ
+        </div>
+      </div>
+
+      <div class="for-whom-item">
+        <div class="for-whom-dot"></div>
+        <div class="for-whom-text">
+          <strong>地域から世界へ発信したい方</strong>
+          東三河・西三河の未来を共に創りたい
+        </div>
+      </div>
+
+      <div class="for-whom-item">
+        <div class="for-whom-dot"></div>
+        <div class="for-whom-text">
+          <strong>世界へ挑戦するリアルを感じたい方</strong>
+          世界大会挑戦の経験や想いを知りたい
+        </div>
+      </div>
+
+    </div>
+
+    <div class="participants-wrap">
+      <span class="participant-tag">経営者・事業主</span>
+      <span class="participant-tag">士業</span>
+      <span class="participant-tag">クリエイター</span>
+      <span class="participant-tag">教育</span>
+      <span class="participant-tag">美容・健康</span>
+      <span class="participant-tag">飲食</span>
+      <span class="participant-tag">不動産・建設</span>
+      <span class="participant-tag">小売</span>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════
+     PARTNER
+════════════════════════════════════════ -->
+<section>
+  <div class="container">
+    <div class="partner-box">
+      <div class="partner-badge">共創パートナー募集中</div>
+      <h3 class="partner-title">一緒に新しい価値を生み出しませんか？</h3>
+      <p class="partner-desc">
+        協賛・PR・コラボのご相談も歓迎しております。<br>
+        お一人でのご参加や、交流会が初めての方も大歓迎。<br>
+        当日は運営側でも参加者同士のご紹介や<br>
+        交流サポートを行います。
+      </p>
+      <a href="mailto:nozomiconnect.info@gmail.com" class="btn-primary">協賛・コラボを相談する</a>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════
+     CTA
+════════════════════════════════════════ -->
+<section class="cta-bg">
+  <div class="container">
+    <div class="ornament">
+      <div class="ornament-line"></div>
+      <div class="ornament-diamond"></div>
+      <div class="ornament-line right"></div>
+    </div>
+
+    <h2 class="cta-title">つながりが、未来を変える</h2>
+    <p class="cta-copy">ご参加を心よりお待ちしております</p>
+
+    <div style="text-align:center;">
+      <div class="price-highlight">
+        <div class="price-amount">¥11,000</div>
+        <div class="price-note">税込｜ビュッフェ・飲み放題付き</div>
+      </div>
+    </div>
+
+    <div style="text-align:center;">
+      <a href="mailto:nozomiconnect.info@gmail.com" class="btn-primary">今すぐ申し込む</a>
+    </div>
+
+    <div class="contact-grid">
+
+      <div class="contact-card">
+        <div class="contact-label">CONTACT 01</div>
+        <div class="contact-value">中村 真</div>
+        <div class="contact-note">090-8866-5572</div>
+      </div>
+
+      <div class="contact-card">
+        <div class="contact-label">CONTACT 02</div>
+        <div class="contact-value">當川 秀樹</div>
+        <div class="contact-note">090-5036-6000</div>
+      </div>
+
+      <div class="contact-card">
+        <div class="contact-label">EMAIL</div>
+        <div class="contact-value" style="font-size:0.82rem;">nozomiconnect.info<br>@gmail.com</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════
+     FOOTER
+════════════════════════════════════════ -->
+<footer>
+  <div class="footer-logo">NOZOMI CONNECT</div>
+  <p class="footer-copy">東西三河ビジネス交流会 ｜ 2026.06.25 ｜ ホテルアークリッシュ豊橋 4F</p>
+</footer>
+
+</body>
+</html>
